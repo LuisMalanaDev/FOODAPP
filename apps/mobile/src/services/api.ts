@@ -5,8 +5,8 @@ import { SEEDED_CATEGORIES, SEEDED_RECIPES } from './fallbackData';
 declare const process: { env?: Record<string, string | undefined> };
 
 // Default Fastify backend endpoint
-const DEFAULT_HOST = Platform.OS === 'android' ? 'http://10.0.2.2:3000' : 'http://localhost:3000';
-export let API_BASE_URL = process.env?.EXPO_PUBLIC_API_URL || DEFAULT_HOST;
+const DEFAULT_HOST = process.env?.EXPO_PUBLIC_API_URL || 'https://foodapp-glb7.onrender.com';
+export let API_BASE_URL = DEFAULT_HOST;
 
 export function setApiBaseUrl(url: string) {
   API_BASE_URL = url;
