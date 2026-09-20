@@ -8,7 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "eas-build-pre-install": "echo node-linker=hoisted >> .npmrc"
   },
   "dependencies": {
     "@babel/runtime": "^8.0.5",
