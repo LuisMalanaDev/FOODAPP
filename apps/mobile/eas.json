@@ -13,7 +13,7 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_USE_PNPM": "1",
+        "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "EXPO_PUBLIC_API_URL": "https://foodapp-glb7.onrender.com"
       }
     },
