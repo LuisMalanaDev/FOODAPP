@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: kusinadex_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kusina_user
+      POSTGRES_PASSWORD: kusina_password
+      POSTGRES_DB: kusinadex_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

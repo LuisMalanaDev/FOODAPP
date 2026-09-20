@@ -1,0 +1,23 @@
+{
+  "name": "kusinadex-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KusinaDex: Authentic Filipino Food Explorer - Pure Mobile App & Fastify Backend",
+  "scripts": {
+    "server:dev": "pnpm --filter server dev",
+    "server:build": "pnpm --filter server build",
+    "server:start": "pnpm --filter server start",
+    "mobile:start": "pnpm --filter mobile start",
+    "mobile:android": "pnpm --filter mobile android",
+    "mobile:ios": "pnpm --filter mobile ios",
+    "mobile:web": "pnpm --filter mobile web",
+    "types:build": "pnpm --filter @kusinadex/types build",
+    "db:generate": "pnpm --filter server prisma:generate",
+    "db:migrate": "pnpm --filter server prisma:migrate",
+    "db:seed": "pnpm --filter server db:seed"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "typescript": "^5.7.3"
+  }
+}

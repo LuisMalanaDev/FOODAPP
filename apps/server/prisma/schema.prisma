@@ -1,0 +1,102 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum SpiceLevel {
+  NONE
+  MILD
+  MEDIUM
+  SPICY
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+model Category {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  filipinoName String
+  description  String
+  iconName     String   @default("Utensils")
+  displayOrder Int      @default(0)
+  recipes      Recipe[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("categories")
+}
+
+model Recipe {
+  id              String       @id @default(cuid())
+  slug            String       @unique
+  title           String
+  englishTitle    String?
+  description     String
+  prepTimeMinutes Int
+  cookTimeMinutes Int
+  servings        Int
+  spiceLevel      SpiceLevel   @default(NONE)
+  originRegion    String
+  difficulty      Difficulty   @default(MEDIUM)
+  imageUrl        String
+  featured        Boolean      @default(false)
+  isExternal      Boolean      @default(false)
+  externalId      String?      @unique
+  sourceUrl       String?
+  mainIngredient  String?
+  cutOrType       String?
+
+  categoryId      String
+  category        Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  ingredients     Ingredient[]
+  steps           Step[]
+
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@index([categoryId])
+  @@index([title])
+  @@index([originRegion])
+  @@index([mainIngredient])
+  @@index([cutOrType])
+  @@map("recipes")
+}
+
+model Ingredient {
+  id         String   @id @default(cuid())
+  name       String
+  amount     Float
+  unit       String
+  notes      String?
+  isOptional Boolean  @default(false)
+
+  recipeId   String
+  recipe     Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@index([recipeId])
+  @@index([name])
+  @@map("ingredients")
+}
+
+model Step {
+  id           String   @id @default(cuid())
+  stepNumber   Int
+  instruction  String
+  timerMinutes Int?
+  tips         String?
+
+  recipeId     String
+  recipe       Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([recipeId, stepNumber])
+  @@map("steps")
+}

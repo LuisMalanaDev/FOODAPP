@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "KusinaDex",
+    "slug": "kusinadex",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#EA580C"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kusinadex.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#EA580C"
+      },
+      "package": "com.kusinadex.app"
+    },
+    "extra": {
+      "apiUrl": "http://10.0.2.2:3000"
+    }
+  }
+}
