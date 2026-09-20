@@ -24,7 +24,10 @@
       "package": "com.kusinadex.app"
     },
     "extra": {
-      "apiUrl": "https://foodapp-glb7.onrender.com"
+      "apiUrl": "https://foodapp-glb7.onrender.com",
+      "eas": {
+        "projectId": "45e6f420-bd85-4efe-8313-3f4e18d66877"
+      }
     }
   }
 }
