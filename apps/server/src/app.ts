@@ -22,6 +22,16 @@ export function buildApp(): FastifyInstance {
 
   app.register(sensible);
 
+  // Root welcome endpoint
+  app.get('/', async (_req, reply) => {
+    return reply.send({
+      message: '🍲 KusinaDex API Server is Online & Healthy!',
+      version: '1.0.0',
+      docs: '/api/recipes',
+      health: '/health',
+    });
+  });
+
   // Health check endpoint
   app.get('/health', async (_req, reply) => {
     let dbStatus = 'healthy';
