@@ -9,7 +9,12 @@ const config = getDefaultConfig(projectRoot);
 // 1. Watch all files in monorepo
 config.watchFolders = [monorepoRoot];
 
-// 2. Let Metro resolve packages from both local and root node_modules
+// 2. Extra node modules mapping
+config.resolver.extraNodeModules = {
+  '@kusinadex/types': path.resolve(projectRoot, 'src/types'),
+};
+
+// 3. Let Metro resolve packages from both local and root node_modules
 config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, 'node_modules'),
   path.resolve(monorepoRoot, 'node_modules'),

@@ -15,6 +15,7 @@ const Stack = createNativeStackNavigator();
 function BottomTabNavigator() {
   return (
     <Tab.Navigator
+      id="bottom-tab-nav"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.primary,
@@ -71,6 +72,7 @@ function BottomTabNavigator() {
 export function AppNavigator() {
   return (
     <Stack.Navigator
+      id="root-stack-nav"
       screenOptions={{
         headerShown: false,
         animation: 'slide_from_right',

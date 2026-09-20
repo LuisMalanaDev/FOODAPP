@@ -22,7 +22,6 @@ export const BentoCard: React.FC<BentoCardProps> = ({
       activeOpacity={0.92}
       onPress={onPress}
       style={styles.cardContainer}
-      className="rounded-3xl overflow-hidden shadow-xl bg-stone-900 mx-4 my-3"
     >
       <Image source={{ uri: recipe.imageUrl }} style={styles.heroImage} resizeMode="cover" />
 
