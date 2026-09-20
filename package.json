@@ -5,7 +5,7 @@
   "description": "KusinaDex: Authentic Filipino Food Explorer - Pure Mobile App & Fastify Backend",
   "scripts": {
     "build": "pnpm --filter server prisma:generate && pnpm --filter @kusinadex/types build && pnpm --filter server build",
-    "start": "pnpm --filter server start",
+    "start": "pnpm build && pnpm --filter server start",
     "server:dev": "pnpm --filter server dev",
     "server:build": "pnpm --filter server build",
     "server:start": "pnpm --filter server start",
