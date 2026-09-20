@@ -40,7 +40,7 @@
    * **Region**: *Singapore* (closest to Philippines / lowest latency)
    * **Root Directory**: Leave empty or set to root (`.`)
    * **Runtime**: `Node`
-   * **Build Command**: `pnpm install && pnpm --filter @kusinadex/types build && pnpm --filter server build`
+   * **Build Command**: `pnpm install && pnpm --filter server prisma:generate && pnpm --filter @kusinadex/types build && pnpm --filter server build`
    * **Start Command**: `pnpm --filter server start`
 4. Add **Environment Variables** in Render:
    * `NODE_ENV`: `production`
