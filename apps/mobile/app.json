@@ -24,7 +24,7 @@
       "package": "com.kusinadex.app"
     },
     "extra": {
-      "apiUrl": "http://10.0.2.2:3000"
+      "apiUrl": "https://foodapp-glb7.onrender.com"
     }
   }
 }
